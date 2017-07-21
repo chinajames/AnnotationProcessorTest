@@ -1,0 +1,16 @@
+apply plugin: 'java'
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile project(':apt-lib')
+    //Google Auto的主要作用是注解Processor类，并对其生成META-INF的配置信息，
+    //可以让你不用去写META-INF这些配置文件，只要在自定义的Processor上面加上@AutoService(Processor.class)
+    compile 'com.google.auto.service:auto-service:1.0-rc3'
+    //可以更方便的生成代码，它可以帮助我们通过类调用的形式来生成代码。
+    compile 'com.squareup:javapoet:1.9.0'
+    compile 'org.apache.commons:commons-lang3:3.6'
+
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
